@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import store from './store/index';
-import {increaseCount, decreaseCount} from './store/actions';
+import {increaseCount, decreaseCount, testFetch} from './store/actions';
 import {connect} from "react-redux";
 import get from 'lodash/get'
 
@@ -29,7 +29,9 @@ class App extends React.Component {
 
             <br/>
             <button onClick={() => increaseCount('Testical 1')}> Increase </button><br/>
-            <button onClick={() => decreaseCount('Testical 2')}> Decrease </button>
+            <button onClick={() => decreaseCount('Testical 2')}> Decrease </button><br/>
+              <button onClick={() => testFetch()}> Test Fetch </button><br/>
+
           </header>
           <h1>TESTICAL</h1>
             <h3>{this.props.osman}</h3>

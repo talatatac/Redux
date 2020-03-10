@@ -16,8 +16,11 @@ const composeEnhancers =
 
 
 // MiddleWare için eklendi.
+
+
+const middlewares = [thunk];
 const enhancer = composeEnhancers(
-    applyMiddleware(...[thunk]),
+    applyMiddleware(...middlewares),
     // other store enhancers if any
 );
 

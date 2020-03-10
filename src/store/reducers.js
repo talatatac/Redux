@@ -9,3 +9,7 @@ export const sliceReducer = reducer("asd",
 export const sliceReducer2 = reducer({'Slice' : 2},
     {[actions.DECREMENT] : (state, action) => action.payload}
 )
+
+export const sliceReducer3 = reducer({},
+    {[actions.TEST_FETCH] : (state, action) => action.payload}
+)
