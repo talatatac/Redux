@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import store from './store/index';
+import {increaseCount, decreaseCount} from './store/actions';
+import connectToStore from './store/connectToStore';
+
 
 function App() {
   return (
@@ -17,8 +21,15 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+
         </a>
+
+        <br/>
+        <button onClick={() => increaseCount('Testical 1')}> Increase </button><br/>
+        <button onClick={() => decreaseCount('Testical 2')}> Decrease </button>
       </header>
+      <h1>TESTICAL</h1>
+      <h3>{connectToStore('sliceReducer')}</h3>
     </div>
   );
 }

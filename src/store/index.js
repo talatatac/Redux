@@ -17,13 +17,15 @@ const composeEnhancers =
 
 // MiddleWare için eklendi.
 const enhancer = composeEnhancers(
-    applyMiddleware(thunk),
+    applyMiddleware(...[thunk]),
     // other store enhancers if any
 );
 
-const combinedReducers = combineReducers({reducers});
+const combinedReducers = combineReducers({...reducers});
 
 const store = createStore(combinedReducers, enhancer)
 
 
 export default store;
+
+window.store = store;
