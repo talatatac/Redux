@@ -3,35 +3,48 @@ import logo from './logo.svg';
 import './App.css';
 import store from './store/index';
 import {increaseCount, decreaseCount} from './store/actions';
-import connectToStore from './store/connectToStore';
+import {connect} from "react-redux";
+import get from 'lodash/get'
 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
 
-        </a>
+class App extends React.Component {
+    render () {
+    return (
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>
+              Edit <code>src/App.js</code> and save to reload.
+            </p>
+            <a
+                className="App-link"
+                href="https://reactjs.org"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+              Learn React
 
-        <br/>
-        <button onClick={() => increaseCount('Testical 1')}> Increase </button><br/>
-        <button onClick={() => decreaseCount('Testical 2')}> Decrease </button>
-      </header>
-      <h1>TESTICAL</h1>
-      <h3>{connectToStore('sliceReducer')}</h3>
-    </div>
-  );
+            </a>
+
+            <br/>
+            <button onClick={() => increaseCount('Testical 1')}> Increase </button><br/>
+            <button onClick={() => decreaseCount('Testical 2')}> Decrease </button>
+          </header>
+          <h1>TESTICAL</h1>
+            <h3>{this.props.osman}</h3>
+        </div>
+    );
+
+  }
+
 }
 
-export default App;
+export default
+connect(
+    state => {
+        const osman = get(state, 'sliceReducer', '');
+        console.log("osman", osman)
+        return {osman}
+
+    })(App);

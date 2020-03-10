@@ -3,7 +3,7 @@ import get from 'lodash/get';
 import * as actions from './actions';
 
 
-export const sliceReducer = reducer({'Slice' : 1},
+export const sliceReducer = reducer("asd",
     {[actions.INCREMENT] : (state, action) => action.payload}
 )
 export const sliceReducer2 = reducer({'Slice' : 2},
