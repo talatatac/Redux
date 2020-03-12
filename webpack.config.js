@@ -6,8 +6,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 
+    // Projenin başlarken okuyacağı js dosyasının yolu
     entry: './src/index.js',
 
+    // Projenin çıktısı
     output: {
         path         : path.resolve(__dirname, 'public'),
         publicPath   : '/',
@@ -16,6 +18,8 @@ module.exports = {
         chunkFilename: 'bundle/[id].js',
     },
 
+    // Babel loader eklendi ve es6 -> tarayıcıların anlayacağı formata dönüştürüldü.
+    //
     module: {
         rules: [{
             test   : /\.js$/,
@@ -31,7 +35,7 @@ module.exports = {
         new HtmlWebpackPlugin({template: "./public/index.html"})
     ],
 
-
+    // historyApiFallback: true, olmalıdır.
     devServer: {
         historyApiFallback: true,
         contentBase: path.resolve(__dirname, "public"),
